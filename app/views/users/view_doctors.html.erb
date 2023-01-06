@@ -1,17 +1,8 @@
-<%= form_with(url: doctors_path, method: :get) do |form| %>
-  <%= form.label :category_id, "Category" %>
-  <%= form.collection_select :category_id, Category.all, :id, :name, prompt: "All Categories" %>
-  <%= form.submit "Filter" %>
+<%= form_tag view_doctors_user_path(current_user), method: :get do %>
+  <%= select_tag :category_id, options_for_select(Category.all.collect { |c| [c.name, c.id] }) %>
+  <%= submit_tag "Filter by category" %>
 <% end %>
 
-<h2>Doctors</h2>
-<% if @doctors.present? %>
-  <% @doctors.each do |doctor| %>
-    <p>
-      <%= doctor.name %><br>
-      <%= doctor.categories.map(&:name).join(", ") %>
-    </p>
-  <% end %>
-<% else %>
-  <p>No doctors found</p>
+<% @doctors.each do |doctor| %>
+  <%= doctor.name %>
 <% end %>

@@ -7,6 +7,7 @@ class Doctor < ApplicationRecord
   has_and_belongs_to_many :categories
   has_many :appointments
   has_many :users, through: :appointments
+  accepts_nested_attributes_for :categories
 
   validates :name, uniqueness: true
   validates :phone, uniqueness: true

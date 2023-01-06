@@ -1,1 +1,8 @@
-<%= link_to "View appointments", doctor_appointments_path(current_doctor) %>
+<h1><%= @doctor.name %> </h1>
+
+<%= form_for @doctor, url: doctor_path(@doctor) do |f| %>
+  <%= f.label :categories %>
+  <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+
+  <%= f.submit %>
+<% end %>
