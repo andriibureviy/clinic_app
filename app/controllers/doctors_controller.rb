@@ -1,5 +1,4 @@
 class DoctorsController < ApplicationController
-  before_action :set_doctor, only: [:show, :update]
   before_action :set_appointment, only: [:update]
 
   def appointments
@@ -29,16 +28,8 @@ class DoctorsController < ApplicationController
 
   private
 
-  def set_doctor
-    @doctor = Doctor.find(params[:id])
-  end
-
   def set_appointment
     @appointment = @doctor.appointments.find(params[:id])
-  end
-
-  def doctor_params
-    params.require(:doctor).permit(category_ids: [])
   end
 
   def appointment_params

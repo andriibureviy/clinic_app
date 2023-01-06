@@ -2,8 +2,6 @@
   <%= form.label :name %>
   <%= form.text_field :name %>
 
-  <%= form.label :doctor_id, "Assign Doctor" %>
-  <%= form.collection_select :doctor_id, Doctor.all, :id, :name, prompt: "Select a doctor" %>
-
   <%= form.submit "Create Category" %>
 <% end %>
+
