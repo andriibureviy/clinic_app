@@ -11,7 +11,10 @@ class Doctor < ApplicationRecord
   validates :name, uniqueness: true
   validates :phone, uniqueness: true
 
-  # Validation to ensure that a doctor has at most 10 open records
+  PHONE_NUMBER_REGEX = /\A\d{5,10}\z/
+
+  validates :phone, format: { with: PHONE_NUMBER_REGEX }
+
   validate :validate_open_records_count
 
   def email_required?
