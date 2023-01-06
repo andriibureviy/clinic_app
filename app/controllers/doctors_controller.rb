@@ -1,5 +1,6 @@
 class DoctorsController < ApplicationController
   before_action :set_appointment, only: [:update]
+  before_action :set_doctor, only: [:show, :appointments, :update]
 
   def appointments
     @appointments = current_doctor.appointments
@@ -27,6 +28,10 @@ class DoctorsController < ApplicationController
   end
 
   private
+
+  def set_doctor
+    @doctor = Doctor.find(params[:id])
+  end
 
   def set_appointment
     @appointment = @doctor.appointments.find(params[:id])
