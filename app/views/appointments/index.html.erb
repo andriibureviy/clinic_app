@@ -1,0 +1,17 @@
+<h1>My Appointments</h1>
+
+<table>
+<tr>
+  <th>Doctor</th>
+  <th>Date/Time</th>
+  <th>Recommendation</th>
+</tr>
+<% @appointments.each do |appointment| %>
+  <tr>
+    <td><%= appointment.doctor.name %></td>
+    <td><%= appointment.date_time.strftime("%B %d, %Y at %I:%M %p") %></td>
+    <td><%= appointment.recommendation %></td>
+  </tr>
+<% end %>
+</table>
+

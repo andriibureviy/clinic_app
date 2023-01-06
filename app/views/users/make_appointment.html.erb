@@ -1,0 +1,18 @@
+<h1>Make Appointment</h1>
+
+<%#= form_for @appointment do |f| %>
+  <%#= f.label :doctor_id, "Doctor" %>
+  <%#= f.collection_select :doctor_id, Doctor.all, :id, :name %>
+  <%#= f.label :appointment_date, "Date" %>
+  <%#= f.date_field :appointment_date %>
+  <%#= f.submit "Make Appointment" %>
+<%# end %>
+
+appointments
+<%= form_with model: @appointment, url: appointment_path do |form| %>
+  <%= form.label :doctor_id, "Select a doctor:" %>
+  <%= form.collection_select :doctor_id, Doctor.all, :id, :name, {}, {class: "form-control"} %>
+  <%= form.label :date_time, "Select a date and time:" %>
+  <%= form.datetime_select :date_time, {}, {class: "form-control"} %>
+  <%= form.submit "Make Appointment", class: "btn btn-primary" %>
+<% end %>

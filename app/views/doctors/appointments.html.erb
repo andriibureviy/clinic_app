@@ -1,0 +1,21 @@
+<h1>Appointments for Dr. <%= current_doctor.name %></h1>
+
+<table>
+  <tr>
+    <th>Patient</th>
+    <th>Patient name </th>
+    <th>Date/Time</th>
+    <th>Recommendation</th>
+  </tr>
+  <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= link_to appointment.user.id, doctor_appointment_path(current_doctor, appointment) %></td>
+      <td><%= appointment.user.name %></td>
+      <td><%= appointment.date_time %></td>
+      <%# if appointment.recommendation.present? %>
+        <td><%= appointment&.recommendation %></td>
+      <%# end %>
+    </tr>
+  <% end %>
+</table>
+

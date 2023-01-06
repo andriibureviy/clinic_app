@@ -1,2 +1,9 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<%= form_with(model: @category, url: categories_path, method: :post) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :doctor_id, "Assign Doctor" %>
+  <%= form.collection_select :doctor_id, Doctor.all, :id, :name, prompt: "Select a doctor" %>
+
+  <%= form.submit "Create Category" %>
+<% end %>

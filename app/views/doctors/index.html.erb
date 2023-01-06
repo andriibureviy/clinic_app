@@ -1,0 +1,10 @@
+
+<%= form_tag doctors_path, method: :get do %>
+  <%= label_tag :category_id, "Filter by category:" %>
+  <%= collection_select(:category, :id, Category.all, :id, :name, prompt: "All categories") %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+<% @doctors.each do |doctor| %>
+  <%= doctor.name %>
+<% end %>

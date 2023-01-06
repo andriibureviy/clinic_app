@@ -1,0 +1,16 @@
+<%#= form_with model: [@doctor, @appointment], url: appointments_path do |f| %>
+  <%#= f.text_area :recommendation, placeholder: "Enter recommendation here..." %>
+  <%#= f.submit "Save Recommendation" %>
+<%# end %>
+
+<%#= form_for [@doctor, @appointment], url: appointment_path(appointment), method: :patch do |f| %>
+  <%#= f.text_area :recommendation, placeholder: "Enter recommendation here..." %>
+  <%#= f.submit "Save Recommendation" %>
+<%# end %>
+
+<%= @appointment.recommendation %>
+
+<%= form_for @appointment, url: doctor_appointment_path(@doctor, @appointment), method: :patch do |f| %>
+  <%= f.text_area :recommendation, placeholder: "Enter recommendation here..." %>
+  <%= f.submit "Save Recommendation" %>
+<% end %>

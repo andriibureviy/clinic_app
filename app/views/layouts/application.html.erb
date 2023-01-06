@@ -10,6 +10,20 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <header>
+    <nav>
+      <% if current_doctor.present? %>
+        <%= link_to "Doctor profile page", doctor_appointments_path(current_doctor) %> |
+      <% end %>
+      <% if current_user.present? %>
+        <%= link_to "Home", root_path %> |
+        <%= link_to 'View Profile', user_path(current_user) %> |
+        <%= link_to "My Appointments", appointments_path %> |
+        <%= link_to "Categories", categories_path %>
+     <% end %>
+    </nav>
+  </header>
+
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

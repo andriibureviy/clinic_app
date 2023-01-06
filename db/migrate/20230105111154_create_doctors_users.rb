@@ -3,7 +3,6 @@ class CreateDoctorsUsers < ActiveRecord::Migration[7.0]
     create_table :doctors do |t|
       t.string :name
       t.integer :open_records_count, default: 0
-      t.string :uuid, null: false
 
       t.timestamps
     end
@@ -11,7 +10,6 @@ class CreateDoctorsUsers < ActiveRecord::Migration[7.0]
     create_table :users do |t|
       t.string :name
       t.string :recommendation
-      t.string :uuid, null: false
 
       t.timestamps
     end
@@ -24,7 +22,5 @@ class CreateDoctorsUsers < ActiveRecord::Migration[7.0]
     end
 
     add_index :doctor_user_communications, [:doctor_id, :user_id], unique: true
-    add_index :users, :uuid, unique: true
-    add_index :doctors, :uuid, unique: true
   end
 end

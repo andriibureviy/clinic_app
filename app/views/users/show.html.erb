@@ -1,0 +1,16 @@
+<h1>User Profile</h1>
+
+<p>Name: <%= @user.name %></p>
+<p>Phone: <%= @user.phone %></p>
+
+
+<%= form_with model: @appointment = Appointment.new, url: appointments_path do |form| %>
+  <%= form.label :doctor_id, "Select a doctor:" %>
+  <%= form.collection_select :doctor_id, Doctor.all, :id, :name, {}, {class: "form-control"} %>
+  <%= form.label :date_time, "Select a date and time:" %>
+  <%= form.datetime_select :date_time, {}, {class: "form-control"} %>
+  <%= form.submit "Make Appointment", class: "btn btn-primary" %>
+<% end %>
+
+ <%= link_to 'View Doctors', view_doctors_user_path(@user) %>
+<%= link_to 'Make Appointment', make_appointment_user_path(@user) %>
