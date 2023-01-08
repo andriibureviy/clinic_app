@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :view_doctors
       get :make_appointment
       get :view_recommendation
+      get :appointments
     end
   end
   resources :doctors, only: [:show] do
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
 
   patch "doctors/:id", to: "doctors#update"
   get '/doctors', to: 'doctors#index'
+  get '/doctors/:id/appointments', to: 'doctors#appointments', as: :doctor_appointments
   get '/doctors/:doctor_id/appointments/:id', to: 'appointments#show', as: :doctor_appointment
   patch '/doctors/:doctor_id/appointments/:id', to: 'appointments#update', as: :doctor_appointment_update
   get '/categories/:id/doctors', to: 'categories#doctors', as: :category_doctors

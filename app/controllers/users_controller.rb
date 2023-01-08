@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :view_doctors, :make_appointment, :view_recommendation]
+
   def show
     @user = User.find(params[:id])
   end

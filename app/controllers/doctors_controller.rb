@@ -1,9 +1,10 @@
 class DoctorsController < ApplicationController
+  before_action :authenticate_doctor!
   before_action :set_appointment, only: [:update]
   before_action :set_doctor, only: [:show, :appointments, :update]
 
   def appointments
-    @appointments = current_doctor.appointments
+    @appointments = @doctor.appointments
   end
 
   def show
