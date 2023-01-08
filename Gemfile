@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem 'activeadmin'
 gem "cancancan"
 gem "devise"
 gem "devise_token_auth", github: "lynndylanhurley/devise_token_auth"
@@ -15,6 +16,7 @@ gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4"
 gem "sprockets-rails"
 gem "stimulus-rails"
+gem 'sassc'
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "turbo-rails"
 gem "bootsnap", require: false
